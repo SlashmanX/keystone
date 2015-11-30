@@ -13,6 +13,17 @@ exports = module.exports = function(req, res) {
 	var filters = req.list.processFilters(req.query.q);
 	var cleanFilters = {};
 	var queryFilters = req.list.getSearchFilters(req.query.search, filters);
+
+	var tmpListFilter = req.list.options.filter;
+	var listFilter;
+	if(typeof tmpListFilter=== 'function') {
+		listFilter = req.list.options.filter.bind(req)();
+	}
+	else {
+		listFilter = tmpListFilter;
+	}
+	queryFilters = _.extend(queryFilters, listFilter);
+
 	var columns = (req.query.cols) ? req.list.expandColumns(req.query.cols) : req.list.defaultColumns;
 
 	_.each(filters, function(filter, path) {
