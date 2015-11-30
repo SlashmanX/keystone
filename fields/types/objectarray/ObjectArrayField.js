@@ -138,6 +138,39 @@ module.exports = Field.create({
 		);
 	},
 
+	renderValue: function() {
+		return (
+			this.state.values.map(this.renderReadOnlyItem)
+		);
+	},
+	renderReadOnlyItem: function(item, itemIndex) {
+		var self = this;
+
+		return (
+			item.valueKeys.map(function(propertyIndex) {
+				return self.renderReadOnlyPart(item.obj[propertyIndex], propertyIndex, itemIndex);
+			})
+		);
+	},
+	renderReadOnlyPart: function(obj, objIndex, parentIndex) {
+		var fieldName = this.props.path + '[' + parentIndex + ']' +'[' + obj.fieldName + ']';
+		if(objIndex === 'language') {
+			var style = {
+				fontWeight: 'bold'
+			}
+			return (
+			<div style={style}>{obj.value}</div>
+			);
+		}
+		else {
+			var style = {
+				marginBottom: '10px'
+			}
+			return (
+				<div style={style}className='field-value'>{obj.value}</div>
+			);
+		}
+	},
 	renderItem: function(item, itemIndex) {
 		var self = this;
 

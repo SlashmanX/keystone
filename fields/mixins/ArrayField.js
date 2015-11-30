@@ -67,6 +67,24 @@ module.exports = {
 		/* eslint-enable */
 	},
 	
+	renderValue: function () {
+		return (
+			<div>
+				{this.state.values.map(this.renderReadOnlyItem)}
+			</div>
+		);
+	},
+
+	renderReadOnlyItem: function(i) {
+		/* eslint-disable no-script-url */
+		return (
+			<div key={i.key} className='field-value'>
+				{i.value}
+			</div>
+		);
+		/* eslint-enable */
+	},
+
 	renderField: function () {
 		return (
 			<div>
