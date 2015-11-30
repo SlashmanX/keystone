@@ -24,6 +24,23 @@ exports = module.exports = function(req, res) {
 	}
 	queryFilters = _.extend(queryFilters, listFilter);
 
+	if(typeof req.list.get('nodelete') === 'function') {
+		req.list.set('nodelete', req.list.get('nodelete').bind(req)());
+	}
+
+	if(typeof req.list.get('noedit') === 'function') {
+		req.list.set('noedit', req.list.get('noedit').bind(req)());
+	}
+
+	if(typeof req.list.get('nocreate') === 'function') {
+		req.list.set('nocreate', req.list.get('nocreate').bind(req)());
+	}
+
+	if(typeof req.list.get('hidden') === 'function') {
+		req.list.set('hidden', req.list.get('hidden').bind(req)());
+	}
+
+
 	var columns = (req.query.cols) ? req.list.expandColumns(req.query.cols) : req.list.defaultColumns;
 
 	_.each(filters, function(filter, path) {
