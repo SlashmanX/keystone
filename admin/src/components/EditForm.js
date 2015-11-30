@@ -147,6 +147,10 @@ var EditForm = React.createClass({
 				var field = this.props.list.fields[el.field],
 					props = this.getFieldProps(field);
 
+				if(this.props.list.noedit) {
+					props.noedit = true;
+				}
+
 
 				if ('function' !== typeof Fields[field.type]) {
 					elements[field.path] = React.createElement(InvalidFieldType, { type: field.type, path: field.path });
