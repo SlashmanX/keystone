@@ -77,8 +77,11 @@ module.exports = {
 
 	renderReadOnlyItem: function(i) {
 		/* eslint-disable no-script-url */
+		var style = {
+			marginRight: '5px'
+		}
 		return (
-			<div key={i.key} className='field-value'>
+			<div key={i.key} style={style} className='field-value'>
 				{i.value}
 			</div>
 		);
