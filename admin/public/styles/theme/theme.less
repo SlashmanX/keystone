@@ -579,23 +579,29 @@ h3.relationship-heading {
 
 // Create buttons
 .btn.btn-create {
-	#gradient .vertical( lighten(@brand-success, 4%), darken(@brand-success, 4%), 0%, 100% );
-	border-color: lighten(@brand-success, 4%) @brand-success darken(@brand-success, 4%);
-	box-shadow: none;
-	color: white;
+	float: right;
+    border-radius: 25px;
+    background-color: transparent;
+    margin-top:20px;
+    border-width: 2px;
 
 	&:hover,
 	&:focus {
-		#gradient .vertical( lighten(@brand-success, 8%), @brand-success, 0%, 100% );
-		border-color: lighten(@brand-success, 8%) lighten(@brand-success, 4%) @brand-success;
-		box-shadow: none;
+		float: right;
+	    border-radius: 25px;
+	    background-color: transparent;
+	    margin-top:20px;
+	    border-width: 2px;
 	}
 
 	&:active,
 	&.active {
-		background: @brand-success;
-		border-color: darken(@brand-success, 8%) darken(@brand-success, 4%) @brand-success;
-		box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
+		float: right;
+	    border-radius: 25px;
+	    background-color: transparent;
+	    color: white;
+	    margin-top:20px;
+	    border-width: 2px;
 	}
 }
 

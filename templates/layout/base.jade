@@ -23,14 +23,14 @@ html
 		#wrap
 			nav(role='navigation')#header.navbar.navbar-default.navbar-static-top: .container
 				a(href=backUrl).navbar-backtobrand-trigger.hidden-xs: span.ion-arrow-left-c
-				.navbar-backtobrand-message Back to the #{brand} website
+				.navbar-backtobrand-message Back to the Content website
 				.navbar-header
 					button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-headernav-collapse')
 						span.sr-only Toggle section navigation
 						span.icon-bar
 						span.icon-bar
 						span.icon-bar
-					a(href='/keystone', class=(section == 'home' ? 'active' : null)).navbar-brand= brand
+					a(href='/content',target="_parent" class=(section == 'home' ? 'active' : null)).navbar-brand= "Content"
 				.collapse.navbar-collapse.navbar-headernav-collapse
 					if signout
 						ul.nav.navbar-nav.navbar-right
@@ -97,7 +97,7 @@ html
 		script(src="/keystone/js/lib/pikaday/pikaday.jquery-1.1.0.js")
 		script(src="/keystone/js/lib/jquery-placeholder-shim/jquery-placeholder-shim.js")
 		script(src="/keystone/js/lib/tinymce/tinymce.min.js")
-		block js_codemirror
+		script(src="/keystone/js/lib/codemirror/codemirror-compressed.js")
 
 		//- App
 		script.

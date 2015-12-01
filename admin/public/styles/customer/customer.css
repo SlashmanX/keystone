@@ -1,21 +1,7 @@
 
 button.btn.btn-default.btn-create.btn-create-item{
  	    float: right;
-    /*margin-top: 20px;*/
  }
 .list-toolbar {
     float: right;
-}
-
-input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
-    color:    white;
-}
-input:-moz-placeholder, textarea:-moz-placeholder { 
-    color:    white;
-}
-input::-moz-placeholder, textarea::-moz-placeholder { 
-    color:    white;
-}
-input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
-    color:    white;
 }

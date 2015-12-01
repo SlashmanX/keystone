@@ -23,7 +23,7 @@ var View = React.createClass({
 		if (Keystone.list.autocreate) {
 			return (
 				<div className="toolbar">
-					<a href={'?new' + Keystone.csrf.query} className="btn btn-default btn-create btn-create-item">
+					<a href={'?new' + Keystone.csrf.query} className="btn btn-default btn-create btn-create-item new-item">
 						<span className="ion-plus-round mr-5" />
 						Create {Keystone.list.singular}
 					</a>
