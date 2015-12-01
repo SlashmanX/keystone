@@ -143,7 +143,7 @@ block content
 													span(class='fieldicon fieldicon-date')
 													span Date Modified
 				.dropdown-inline.list-filter-dropdown
-										button(type='button', data-toggle='dropdown').btn.btn-default.dropdown-toggle#button4
+										button(type='button', data-toggle='dropdown')#button4
 											| Add Filter 
 											b.caret
 										ul.dropdown-menu: each el in list.uiElements
@@ -179,7 +179,7 @@ block content
 										input(type='search', name='search', placeholder='Search #{list.plural.toLowerCase()}', value=search).form-control.js-search-list.searchbox-input
 										if search
 											a(href='/keystone/#{list.path}', title='Clear search').search-list-clear &times;
-									.searchbox-button: button(type='submit').btn.btn-default.btn-search.searchbox-submit#button2
+									.searchbox-button: button(type='submit')#button2
 										span
 											img(src='/keystone/images/button/search.png')
 								//- .search-field
