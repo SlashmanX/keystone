@@ -43,15 +43,17 @@ block content
 		
 		.page-header.list-header(class=!items.total && !search && !xFilters ? 'empty-list' : '')
 			h1 
-				#{list.singular}
-				button(type="button").logobutton
-					img(src='/keystone/images/menu/#{list.singular.toLowerCase()}.png')
-				&nbsp;
-				if items.total
-					span.items-total= utils.plural(items.total, '* ' + list.singular, '* ' + list.plural) + ' '
-				else
-					span.items-total No #{list.plural.toLowerCase()} found
-						= search || xFilters ? ' ' : '.'
+				div
+					span #{list.singular}
+					button(type="button").logobutton
+						img(src='/keystone/images/menu/logo/#{list.singular.toLowerCase()}.png')
+					&nbsp;
+					if items.total
+						span.items-total= utils.plural(items.total, '* ' + list.singular, '* ' + list.plural) + ' '
+					else
+						span.items-total No #{list.plural.toLowerCase()} found
+							= search || xFilters ? ' ' : '.'
+					hr
 				br
 				
 				.search-sort(style='display:inline-block')
@@ -176,53 +178,11 @@ block content
 										li.dropdown-header Recent Filters
 								.form-inline.searchbox-form.mr-5
 									.searchbox-field
+										button(type='submit')#button2
+											img(src='/keystone/images/button/search.png')
 										input(type='search', name='search', placeholder='Search #{list.plural.toLowerCase()}', value=search).form-control.js-search-list.searchbox-input
 										if search
 											a(href='/keystone/#{list.path}', title='Clear search').search-list-clear &times;
-									.searchbox-button: button(type='submit')#button2
-										span
-											img(src='/keystone/images/button/search.png')
-								//- .search-field
-									input(type='text', name='search', placeholder='Search ' + list.plural.toLowerCase(), value=search).form-control
-								//- span.search-button: button(type='submit').btn.btn-default.btn-search#button3
-									span.visible-xs Go
-									span.hidden-xs Search
-								
-						
-						//- lg screens only
-						//- columns and download aren't relevant when using a mobile device
-						if items.total
-							.pull-right.hidden-xs
-								.pull-right
-									a(href=download_link, data-confirm="Download a .csv of #{utils.plural(items.total, '* ' + list.singular, '* ' + list.plural).toLowerCase()}?").btn.btn-default Download
-								div(style='margin-right: 10px;').dropdown.list-columns-dropdown.pull-right
-									button(type='button', data-toggle='dropdown').btn.btn-default.dropdown-toggle#button5
-										| Columns 
-										b.caret
-									ul.dropdown-menu
-										each el in list.uiElements
-											if el.type == 'heading'
-												li.dropdown-header= el.heading
-											else if el.type == 'field' && !el.field.nocol && !el.field.hidden
-												li: a(href=js, data-col=el.field.path).btn-toggle-column
-													span(class=_.contains(colPaths, el.field.path) ? 'ion-checkmark' : '').icon
-													span= el.field.label
-										if list.tracking
-											li.divider
-												if list.tracking.createdAt
-													li: a(href=js, data-col=list.tracking.createdAt).btn-toggle-column
-														span(class=_.contains(colPaths, list.tracking.createdAt) ? 'ion-checkmark' : '').icon
-														span Date Created
-												if list.tracking.updatedAt
-													li: a(href=js, data-col=list.tracking.updatedAt).btn-toggle-column
-														span(class=_.contains(colPaths, list.tracking.updatedAt) ? 'ion-checkmark' : '').icon
-														span Date Modified
-										if query.cols
-											li.divider
-											li: a(href=link_to({ cols: undefined }))
-												span.ion-close.icon
-												span Reset to default
-				
 				
 				//-
 				//- List Filters
@@ -393,7 +353,41 @@ block content
 					+pagination(items)
 				else
 					.count Showing #{utils.plural(items.total, '* ' + list.singular, '* ' + list.plural)}
-			
+				
+				//- lg screens only
+				//- columns and download aren't relevant when using a mobile device
+				if items.total
+					.pull-right.hidden-xs
+						.pull-right
+							a(href=download_link, data-confirm="Download a .csv of #{utils.plural(items.total, '* ' + list.singular, '* ' + list.plural).toLowerCase()}?").btn.btn-default Download
+						div(style='margin-right: 10px;').dropdown.list-columns-dropdown.pull-right
+							button(type='button', data-toggle='dropdown').btn.btn-default.dropdown-toggle#button5
+								| Columns 
+								b.caret
+							ul.dropdown-menu
+								each el in list.uiElements
+									if el.type == 'heading'
+										li.dropdown-header= el.heading
+									else if el.type == 'field' && !el.field.nocol && !el.field.hidden
+										li: a(href=js, data-col=el.field.path).btn-toggle-column
+											span(class=_.contains(colPaths, el.field.path) ? 'ion-checkmark' : '').icon
+											span= el.field.label
+								if list.tracking
+									li.divider
+										if list.tracking.createdAt
+											li: a(href=js, data-col=list.tracking.createdAt).btn-toggle-column
+												span(class=_.contains(colPaths, list.tracking.createdAt) ? 'ion-checkmark' : '').icon
+												span Date Created
+										if list.tracking.updatedAt
+											li: a(href=js, data-col=list.tracking.updatedAt).btn-toggle-column
+												span(class=_.contains(colPaths, list.tracking.updatedAt) ? 'ion-checkmark' : '').icon
+												span Date Modified
+								if query.cols
+									li.divider
+									li: a(href=link_to({ cols: undefined }))
+										span.ion-close.icon
+										span Reset to default
+				
 			
 			- var sortable = list.get('sortable') && !list.get('sortContext') && sort.by == 'sortOrder'
 			- var firstColspan = 1;

@@ -1,16 +1,36 @@
 button.btn.btn-default.btn-create.btn-create-item {
         background: transparent;
+        margin-top: 38px;
+        width: 170px;
 }
 
 .container {
     max-width: 100%;
-}
+    padding:0px;
 
+}
+#body {
+    margin-top: 0px;
+}
+nav#header {
+    background: -webkit-gradient(linear, left 0, left 100%, from(transparent), to(transparent));
+    background: -webkit-linear-gradient(top, #3fcc4b, 0, #30b23b, 100%);
+    background: -moz-linear-gradient(top, #3fcc4b 0, #30b23b 100%);
+    background: linear-gradient(to bottom, #54a9f1 0, #34A8C1 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3fcc4b', endColorstr='#ff30b23b', GradientType=0);
+    border-color: rgba(63,204,75,0) rgba(52,194,64,0) rgba(48,178,59,0);
+    box-shadow: none;
+    color: white;
+    padding-top: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
 span.text-muted {
     font-size: 24px;
     font-style: white;
     color: #eee;
-        font-weight: lighter;
+    font-weight: lighter;
 }
 a.dropdown-toggle {
     color: white;
@@ -18,6 +38,7 @@ a.dropdown-toggle {
 }
 h1 {
     margin-top: 20px;
+    color: white;
 }
 .input {
 	font-family: Tahoma, Arial;
@@ -72,26 +93,40 @@ a.btn.btn-default {
     border-bottom-style: solid;
     border-bottom-width: thin;
     background-color: transparent;
+    top: 20px;
+    left: -30PX;
+    Position: relative;
+    box-shadow: none;
 } 
 
-
+.form-control.searchbox-input:focus {
+    box-shadow: none;
+    border-color: white;
+}
 
 .first-part{
     background: -webkit-gradient(linear, left 0, left 100%, from(transparent), to(transparent));
     background: -webkit-linear-gradient(top, #3fcc4b, 0, #30b23b, 100%);
     background: -moz-linear-gradient(top, #3fcc4b 0, #30b23b 100%);
-    background: linear-gradient(to bottom, rgb(84, 169, 241) 0, rgb(52, 194, 168) 100%);
+    background: linear-gradient(to bottom, #34A8C1 0, #34c2a8 100%);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3fcc4b', endColorstr='#ff30b23b', GradientType=0);
-    border-color: rgba(63, 204, 75, 0) rgba(52, 194, 64, 0) rgba(48, 178, 59, 0);
+    border-color: rgba(63,204,75,0) rgba(52,194,64,0) rgba(48,178,59,0);
     box-shadow: none;
     color: white;
+    margin-top: -23px;
+    padding-right:5%;
+    padding-left:5%;
+    padding-bottom:5%;
 }
 
 button#button2 {
     border: 0;
-    margin-top: -65px;
-    margin-left: 190px;
+    margin-top: 10%;
+    margin-left: 85%;
+    padding-bottom: -20px;
+    position: absolute;
+    left: -20%;
     background-color: transparent;
 }
 .form-inline.searchbox-form.mr-5 {
@@ -127,4 +162,54 @@ button#button4 {
 .list-toolbar {
     float: right;
 }
-
+.second-part {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+hr{
+    margin-bottom: 0em;
+    margin-top: 0.5em;
+}
+.list-pagination {
+    color: #999;
+    display: block;
+    font-size: 16px;
+    margin-top: 4%;
+    margin-right: 0px;
+    margin-bottom: 4%;
+    margin-left: 0px;
+}
+#header .navbar-backtobrand-message {
+    background-color: rgba(0, 128, 191, 0.02);
+    color: #Ffffff;
+}
+form.modal-content {
+    background: -webkit-gradient(linear, left 0, left 100%, from(transparent), to(transparent));
+    background: -webkit-linear-gradient(top, #3fcc4b, 0, #30b23b, 100%);
+    background: -moz-linear-gradient(top, #3fcc4b 0, #30b23b 100%);
+    background: linear-gradient(to bottom, #409FE2 0, #3DE0BA 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3fcc4b', endColorstr='#ff30b23b', GradientType=0);
+    border-color: rgba(63,204,75,0) rgba(52,194,64,0) rgba(48,178,59,0);
+    box-shadow: none;
+}
+button.btn.btn-link.btn-cancel {
+    color: white;
+}
+button.btn.btn-create.addbutton {
+    color: white;
+    margin-top: -1px;
+}
+div#item-view {
+    max-width: 980px;
+    margin: 0 auto;
+}
+div.second-part {
+    max-width: 980px;
+    margin: 0 auto;
+}
+div.first-part {
+    max-width: 2000px;
+    margin-left:auto;
+    margin-right:auto;
+}
