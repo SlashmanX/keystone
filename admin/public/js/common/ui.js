@@ -5,8 +5,10 @@ jQuery(function($) {
 	
 	$('.navbar-backtobrand-trigger').mouseenter(function(e) {// eslint-disable-line no-unused-vars
 		$('.navbar-backtobrand-message').addClass('active');
+		$('.navbar-header').addClass('hide');
 	}).mouseleave(function() {
 		$('.navbar-backtobrand-message').removeClass('active');
+		$('.navbar-header').removeClass('hide');
 	});
 
 

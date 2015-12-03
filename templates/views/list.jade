@@ -44,9 +44,10 @@ block content
 		.page-header.list-header(class=!items.total && !search && !xFilters ? 'empty-list' : '')
 			h1 
 				div
-					span #{list.singular}
 					button(type="button").logobutton
 						img(src='/keystone/images/menu/logo/#{list.singular.toLowerCase()}.png')
+					&nbsp;
+					span #{list.singular}
 					&nbsp;
 					if items.total
 						span.items-total= utils.plural(items.total, '* ' + list.singular, '* ' + list.plural) + ' '
@@ -180,7 +181,7 @@ block content
 									.searchbox-field
 										button(type='submit')#button2
 											img(src='/keystone/images/button/search.png')
-										input(type='search', name='search', placeholder='Search #{list.plural.toLowerCase()}', value=search).form-control.js-search-list.searchbox-input
+										input(type='search', name='search', value=search).form-control.js-search-list.searchbox-input
 										if search
 											a(href='/keystone/#{list.path}', title='Clear search').search-list-clear &times;
 				
@@ -391,7 +392,7 @@ block content
 			
 			- var sortable = list.get('sortable') && !list.get('sortContext') && sort.by == 'sortOrder'
 			- var firstColspan = 1;
-			.items-list-wrapper: table(cellpadding=0, cellspacing=0, class=sortable ? 'sortable' : false, data-list-path=list.path).table.items-list
+			.items-list-wrapper: table(cellpadding=0, cellspacing=0, class=sortable ? 'sortable' : false, data-list-path=list.path).table.table-strip.items-list
 				if !list.get('nodelete')
 					- firstColspan++;
 					col(width=26)
