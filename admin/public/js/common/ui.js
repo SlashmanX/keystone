@@ -243,5 +243,25 @@ jQuery(function($) {
 			$btn.click();
 		}, 1);
 	});
+
+	//change the icons when clicking the dropdown
+	// $( "#toggle-menu" ).toggle(function() {
+	// 	$(this).children(span#first).addClass("hide");
+	// 	$(this).children(span#fsecond).removeClass("hide");
+	// }, function() {
+	// 	$(this).children(span#first).removeClass("hide");
+	// 	$(this).children(span#fsecond).addClass("hide");
+	// });
+
+	$( "#toggle-menu" ).click(function() {
+		if($("#first").hasClass("hide")){
+			$("#first").removeClass("hide");
+			$("#second").addClass("hide");
+		}else{
+			$("#first").addClass("hide");
+			$("#second").removeClass("hide");
+		}
+	    
+	});
 	
 });

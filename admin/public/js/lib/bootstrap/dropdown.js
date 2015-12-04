@@ -52,9 +52,18 @@
       $parent
         .toggleClass('open')
         .trigger('shown.bs.dropdown')
-
       $this.focus()
     }
+    //chang icons
+
+    if($this.children("#first").hasClass("hide")){
+      $this.children("#first").removeClass("hide");
+      $this.children("#second").addClass("hide");
+    }else{
+      $this.children("#first").addClass("hide");
+      $this.children("#second").removeClass("hide");
+    }
+    
 
     return false
   }

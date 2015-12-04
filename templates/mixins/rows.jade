@@ -1,7 +1,7 @@
 include columns
 
 mixin row(list, colums, item)
-  tr(id=item.id)
+  tr(id=item.id).myrow
     if !list.get('nodelete') && ( !user || (user && item.id !== user.id ) )
       td.control: a(href='/keystone/' + list.path + '?delete=' + item.id + csrf_query).control-delete
     else if !list.get('nodelete')

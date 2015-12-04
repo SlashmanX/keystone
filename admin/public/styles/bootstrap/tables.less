@@ -106,14 +106,11 @@ th {
 // Default zebra-stripe styles (alternating gray and transparent backgrounds)
 
 .table-striped {
-  > tbody {
-    > tr:nth-child(odd) {
-      > td,
-      > th {
-        background-color: #f9f9f9;
-        color:red;
-      }
-    }
+  > tbody > tr:nth-of-type(odd) {
+    background-color: red;
+  }
+  > tbody > tr:nth-of-type(even) {
+    background-color: yellow;
   }
 }
 
