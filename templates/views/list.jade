@@ -83,8 +83,8 @@ block content
 								else
 									| sort by
 								span#toggle-menu
-									span(aria-hidden="true")#first.glyphicon.glyphicon-floppy-saved
-									span(aria-hidden="true")#second.glyphicon.glyphicon-floppy-remove.hide
+									span(aria-hidden="true")#first.glyphicon.glyphicon-menu-down
+									span(aria-hidden="true")#second.glyphicon.glyphicon-menu-up.hide
 							ul.dropdown-menu
 								if list.get('sortable')
 									if sort.by == 'sortOrder'
@@ -150,8 +150,8 @@ block content
 				.dropdown-inline.list-filter-dropdown
 										button(type='button', data-toggle='dropdown')#button4
 											| Add Filter 
-											span(aria-hidden="true")#first.glyphicon.glyphicon-floppy-saved
-											span(aria-hidden="true")#second.glyphicon.glyphicon-floppy-remove.hide
+											span(aria-hidden="true")#first.glyphicon.glyphicon-menu-down
+											span(aria-hidden="true")#second.glyphicon.glyphicon-menu-up.hide
 										ul.dropdown-menu: each el in list.uiElements
 											if el.type == 'heading'
 												li.dropdown-header= el.heading
@@ -177,8 +177,8 @@ block content
 										span.sr-only Recent Filters
 										span.ion-clock
 										|  
-										span(aria-hidden="true")#first.glyphicon.glyphicon-floppy-saved
-										span(aria-hidden="true")#second.glyphicon.glyphicon-floppy-remove.hide
+										span(aria-hidden="true")#first.glyphicon.glyphicon-menu-down
+										span(aria-hidden="true")#second.glyphicon.glyphicon-menu-up.hide
 									ul.dropdown-menu
 										li.dropdown-header Recent Filters
 								.form-inline.searchbox-form.mr-5
@@ -368,8 +368,8 @@ block content
 						div(style='margin-right: 10px;').dropdown.list-columns-dropdown.pull-right
 							button(type='button', data-toggle='dropdown').btn.btn-default.dropdown-toggle#button5
 								| Columns 
-								span(aria-hidden="true")#first.glyphicon.glyphicon-floppy-saved
-								span(aria-hidden="true")#second.glyphicon.glyphicon-floppy-remove.hide
+								span(aria-hidden="true")#first.glyphicon.glyphicon-menu-down
+								span(aria-hidden="true")#second.glyphicon.glyphicon-menu-up.hide
 							ul.dropdown-menu
 								each el in list.uiElements
 									if el.type == 'heading'

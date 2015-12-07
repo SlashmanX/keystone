@@ -1,6 +1,6 @@
-@background-top:#1FA7D0;
+@background-top:rgb(31,167,208);
 @background-middle:#1FA7D0;
-@background-bottom:#1FD0C8;
+@background-bottom:rgb(31,208,200);
 @grey:#cccccc;
 
 
@@ -45,7 +45,7 @@ h1 {
     color: white;
 }
 .input {
-	font-family: Tahoma, Arial;
+    font-family: Tahoma, Arial;
     font-size: 12pt;
     line-height: 25px;
     COLOR: #000000;
@@ -142,8 +142,15 @@ hr{
 }
 #header .navbar-backtobrand-message {
     background-color: rgba(0, 128, 191, 0.02);
-    color: #Ffffff;
+    color: #fff;
+   
 }
+#header .navbar-backtobrand-message.active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+}
+
 form.modal-content {
     background: -webkit-gradient(linear, left 0, left 100%, from(transparent), to(transparent));
     background: -webkit-linear-gradient(top, #3fcc4b, 0, #30b23b, 100%);
