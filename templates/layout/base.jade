@@ -23,7 +23,7 @@ html
 	body(id='page-' + page)
 		#wrap
 			nav(role='navigation')#header.navbar.navbar-default.navbar-static-top: .container
-				a(href='/dashboard',target="_parent").navbar-backtobrand-trigger.hidden-xs: span.ion-arrow-left-c
+				a(href='/blank/dashboard',target="_parent").navbar-backtobrand-trigger.hidden-xs: span.ion-arrow-left-c
 				.navbar-backtobrand-message Back to the home section
 				.navbar-header
 					button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-headernav-collapse')
@@ -31,7 +31,7 @@ html
 						span.icon-bar
 						span.icon-bar
 						span.icon-bar
-					a(href='/dashboard',target="_parent" class=(section == 'home' ? 'active' : null)).navbar-brand= "Home"
+					a(href='/blank/dashboard',target="_parent" class=(section == 'home' ? 'active' : null)).navbar-brand= "Home"
 				.collapse.navbar-collapse.navbar-headernav-collapse
 					if signout
 						ul.nav.navbar-nav.navbar-right
