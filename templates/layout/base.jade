@@ -21,17 +21,39 @@ html
 		block head
 
 	body(id='page-' + page)
+	- var suffix = {}
+		case list.singular
+			when 'Movie'
+				- suffix = {url: 'content'}
+			when 'Show'
+				- suffix = {url: 'content'}
+			when 'Episode'
+				- suffix = {url: 'content'}
+			when 'Audio'
+				- suffix = {url: 'content'}
+			when 'Track'
+				- suffix = {url: 'content'}
+			when 'Publication'
+				- suffix = {url: 'content'}
+			when 'Game'
+				- suffix = {url: 'content'}
+			when 'Route'
+				- suffix = {url: 'fleet'}
+			when 'Airline'
+				- suffix = {url: 'fleet'}
+			default
+				- suffix = {url: 'content'}
 		#wrap
 			nav(role='navigation')#header.navbar.navbar-default.navbar-static-top: .container
-				a(href='/blank/dashboard',target="_parent").navbar-backtobrand-trigger.hidden-xs: span.ion-arrow-left-c
-				.navbar-backtobrand-message Back to the home section
+				a(href='/prebase/'+suffix.url, target="_parent").navbar-backtobrand-trigger.hidden-xs: span.ion-arrow-left-c
+				.navbar-backtobrand-message Back to the previous menu
 				.navbar-header
 					button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-headernav-collapse')
 						span.sr-only Toggle section navigation
 						span.icon-bar
 						span.icon-bar
 						span.icon-bar
-					a(href='/blank/dashboard',target="_parent" class=(section == 'home' ? 'active' : null)).navbar-brand= "Home"
+					a(href='/prebase/'+suffix.url, target="_parent" class=(section == 'home' ? 'active' : null)).navbar-brand= "Previous"
 				.collapse.navbar-collapse.navbar-headernav-collapse
 					if signout
 						ul.nav.navbar-nav.navbar-right
