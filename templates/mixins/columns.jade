@@ -23,7 +23,7 @@ mixin column(list, col, item)
 	else if col.type == 'html'
 		+column_html(utils.cropHTMLString(item.get(col.field.path), 200, '...', true))
 	else if col.type == 'objectarray'
-		+column_html(utils.cropHTMLString(item.get(col.field.path)[0][col.subpath], 200, '...', true))
+		+column_html(utils.cropHTMLString(item.get(col.field.path)[0] ? item.get(col.field.path)[0][col.subpath] : '', 200, '...', true))
 	else
 		- var value = col.field ? col.field.format(item) : item.get(col.path)
 		if col.isName
