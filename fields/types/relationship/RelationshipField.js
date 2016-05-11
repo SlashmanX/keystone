@@ -60,8 +60,11 @@ module.exports = Field.create({
 			expandedValues.push({
 				value: input
 			});
+			var url = ((self.props.url && self.props.url.item) ?
+				self.props.url.item.replace('[:id:]', input) :
+				'/keystone/api/' + self.props.refList.path + '/' + input + '?simple');
 			superagent
-				.get('/keystone/api/' + self.props.refList.path + '/' + input + '?simple')
+				.get(url)
 				.set('Accept', 'application/json')
 				.end(function (err, res) {
 					if (err) throw err;
@@ -117,8 +120,11 @@ module.exports = Field.create({
 	},
 
 	getOptions: function(input, callback) {
+		var url = (this.props.url && this.props.url.list ? 
+			this.props.url.list.replace('[:search:]', input) :
+			'/keystone/api/' + this.props.refList.path + '/autocomplete?' + this.buildOptionQuery(input));
 		superagent
-			.get('/keystone/api/' + this.props.refList.path + '/autocomplete?' + this.buildOptionQuery(input))
+			.get(url)
 			.set('Accept', 'application/json')
 			.end(function (err, res) {
 				if (err) throw err;
