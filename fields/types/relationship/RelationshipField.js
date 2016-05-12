@@ -45,6 +45,8 @@ module.exports = Field.create({
 		var expandedValues = [];
 		var inputs = _.compact([].concat(input));
 		var self = this;
+		var vKey = this.optionKey();
+		var lKey = this.optionLabel();
 		
 		var finish = function () {
 			self.setState({
@@ -70,7 +72,7 @@ module.exports = Field.create({
 					if (err) throw err;
 					
 					var value = res.body;
-					_.findWhere(expandedValues, { value: value.id }).label = value.name;
+					_.findWhere(expandedValues, { value: value[vKey] }).label = value[lKey];
 
 					callbackCount++;
 					if (callbackCount === inputs.length) {
@@ -119,10 +121,20 @@ module.exports = Field.create({
 				'&' + this.buildFilters();
 	},
 
+	optionKey: function() {
+		return (this.props.customProperties && this.props.customProperties.value) || 'id';
+	},
+
+	optionLabel: function() {
+		return (this.props.customProperties && this.props.customProperties.label) || 'name';
+	},
+
 	getOptions: function(input, callback) {
 		var url = (this.props.url && this.props.url.list ? 
 			this.props.url.list.replace('[:search:]', input) :
 			'/keystone/api/' + this.props.refList.path + '/autocomplete?' + this.buildOptionQuery(input));
+		var vKey = this.optionKey();
+		var lKey = this.optionLabel();
 		superagent
 			.get(url)
 			.set('Accept', 'application/json')
@@ -134,8 +146,8 @@ module.exports = Field.create({
 				callback(null, {
 					options: data.items.map(function (item) {
 						return {
-							value: item.id,
-							label: item.name
+							value: item[vKey],
+							label: item[lKey]
 						};
 					}),
 					complete: data.total === data.items.length
