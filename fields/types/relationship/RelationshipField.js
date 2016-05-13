@@ -63,7 +63,7 @@ module.exports = Field.create({
 				value: input
 			});
 			var url = ((self.props.url && self.props.url.item) ?
-				self.props.url.item.replace('[:id:]', input) :
+				self.props.url.item.replace('[:id:]', encodeURIComponent(input)) :
 				'/keystone/api/' + self.props.refList.path + '/' + input + '?simple');
 			superagent
 				.get(url)
