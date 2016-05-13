@@ -13,7 +13,7 @@ function relationship(list, path, options) {
 	this._defaultSize = this.many ? 'full' : 'large';
 	this._nativeType = keystone.mongoose.Schema.Types.Mixed; // important
 	this._underscoreMethods = ['format'];
-	this._properties = ['isValid', 'many', 'filters', 'url'];
+	this._properties = ['isValid', 'many', 'filters', 'url', 'customProperties'];
 	relationship.super_.call(this, list, path, options);
 }
 util.inherits(relationship, FieldType);
