@@ -155,7 +155,7 @@ block content
 										ul.dropdown-menu: each el in list.uiElements
 											if el.type == 'heading'
 												li.dropdown-header= el.heading
-											else if el.type == 'field' && !el.field.nofilter && !el.field.hidden
+											else if el.type == 'field' && el.field.type != 'objectarray' && el.field.type != 'textarray' && !el.field.nofilter && !el.field.hidden
 												li: a(href=js, data-path=el.field.path).add-list-filter
 													span(class='fieldicon fieldicon-' + el.field.type)
 													span= el.field.label
